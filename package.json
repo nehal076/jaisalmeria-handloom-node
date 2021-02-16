@@ -1,0 +1,34 @@
+{
+  "name": "jaisalmeria-handloom-server",
+  "version": "0.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": "Nehal Jaisalmeria",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha --exit test/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GoogleCloudPlatform/getting-started-nodejs.git"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.16.4",
+    "http-errors": "^1.6.3",
+    "mongoose": "^5.11.15",
+    "morgan": "^1.9.1",
+    "pug": "^2.0.0-beta11"
+  },
+  "devDependencies": {
+    "mocha": "^8.0.0",
+    "supertest": "^6.0.0"
+  }
+}
