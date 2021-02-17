@@ -32,6 +32,10 @@ var schema = new mongoose.Schema({
     rating: {
         type : Number,
         default: 5
+    },
+    bestSelling: {
+        type: Boolean,
+        default: false
     }
 })
 

@@ -16,7 +16,8 @@ class Controller {
         discount: req.body.discount,
         size: req.body.size,
         details: req.body.details,
-        material:req.body.material
+        material:req.body.material,
+        bestSelling: req.body.bestSelling
     })
   
     product.save(product).then(data => {
@@ -83,6 +84,27 @@ class Controller {
     Product.find({_id: req.query.productId}).then(data =>{
 
       res.send(data[0])
+    })
+    .catch(err =>{
+      res.status(500).send({message : err.message});
+    });
+  }
+
+  getBestSelling(req,res) {
+    Product.find({bestSelling: true}).limit(20).then(data =>{
+      let response = {data: []};
+      for(let i in data) {
+        response.data.push({
+          rating: data[i].rating,
+          _id: data[i]._id,
+          categoryId: data[i].categoryId,
+          name: data[i].name,
+          imageUrl: data[i].imageUrl,
+          price: data[i].price,
+          discount: data[i].discount
+        })
+      }
+      res.send(response)
     })
     .catch(err =>{
       res.status(500).send({message : err.message});

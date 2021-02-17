@@ -27,6 +27,15 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var cors = function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
+    res.header("Access-Control-Allow-Headers", "accept, content-type, x-access-token, x-requested-with");
+    next();
+};
+  
+app.use(cors);
+
 app.use('/',require('./server/routes/routes'));
 
 module.exports = app;
