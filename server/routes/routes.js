@@ -14,6 +14,7 @@ router.post('/addProduct', product.addProduct)
 router.get('/getProducts', product.getProducts)
 router.get('/getProductDetails', product.getProductDetails)
 router.get('/getNewArrivals', product.getNewArrivals)
+router.get('/getBestSelling', product.getBestSelling)
 
 
 module.exports = router;
