@@ -38,7 +38,8 @@ class Controller {
       } else {
         res.send({ 
           statusCode: 0, 
-          message: "Success"
+          message: "Success",
+          data: data[0]
         })
       }
     })
@@ -46,6 +47,8 @@ class Controller {
       res.status(500).send({ message: "Error retrieving user with id " + req.query.emailId})
     })
   }
+
+  
 }
 
 module.exports = new Controller();
