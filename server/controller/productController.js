@@ -7,9 +7,10 @@ class Controller {
       res.status(400).send({ message : "Content can not be empty!"});
       return;
     } 
+    const {categoryId,name}=req.body;
     const product = new Product({
-        categoryId: req.body.categoryId,
-        name : req.body.name,
+        categoryId,
+        name,
         imageUrl : req.body.imageUrl,
         price: req.body.price,
         rating: req.body.rating,
