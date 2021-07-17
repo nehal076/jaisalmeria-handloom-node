@@ -28,13 +28,13 @@ class Controller {
 
   loginUser(req,res){
     if(!req.query.emailId && !req.query.password){
-      res.status(400).send({ message : "Email Id or Password cannot be blank!"});
+      res.status(200).send({ message : "Email Id or Password cannot be blank!", statusCode: 303});
       return;
     } 
   
     User.find({ email: req.query.emailId, password: req.query.password }).then(data =>{
       if(!data.length){
-        res.status(404).send({ message : "Not found user with id "+ req.query.emailId})
+        res.status(200).send({ message : "Not found user with id "+ req.query.emailId, statusCode: 303})
       } else {
         res.send({ 
           statusCode: 0, 

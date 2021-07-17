@@ -111,6 +111,32 @@ class Controller {
       res.status(500).send({message : err.message});
     });
   }
+
+  getSimilarProducts(req,res) {
+    if(!req.query.name){
+      res.status(400).send({ message : "Please provide some name bro"});
+      return;
+    } 
+    Product.find({ name: new RegExp(req.query.name, 'i')}).limit(20).then(data =>{
+      res.send(data);
+      // let response = {data: []};
+      // for(let i in data) {
+      //   response.data.push({
+      //     rating: data[i].rating,
+      //     _id: data[i]._id,
+      //     categoryId: data[i].categoryId,
+      //     name: data[i].name,
+      //     imageUrl: data[i].imageUrl,
+      //     price: data[i].price,
+      //     discount: data[i].discount
+      //   })
+      // }
+      // res.send(response)
+    })
+    .catch(err =>{
+      res.status(500).send({message : err.message});
+    });
+  }
 }
 
 module.exports = new Controller();

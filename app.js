@@ -14,7 +14,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 process.env = {
-    "MONGO_URL":"mongodb://localhost:27017/jaisalmeria"
+    "MONGO_URL":"mongodb://localhost:27017/jaisalmeria",
+    "PORT":3000
 }
 
 

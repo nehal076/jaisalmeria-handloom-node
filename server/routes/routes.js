@@ -21,6 +21,7 @@ router.get('/getProducts', product.getProducts)
 router.get('/getProductDetails', product.getProductDetails)
 router.get('/getNewArrivals', product.getNewArrivals)
 router.get('/getBestSelling', product.getBestSelling)
+router.get('/getSimilarProducts', product.getSimilarProducts)
 
 
 router.get('/getUserDetails', userDetails.getUserDetails)
